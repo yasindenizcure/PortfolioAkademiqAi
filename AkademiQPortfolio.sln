@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36705.20 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkademiQPortfolio", "AkademiQPortfolio.csproj", "{3DE0ADD7-F48A-470E-BC72-191E43B61509}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DE0ADD7-F48A-470E-BC72-191E43B61509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE0ADD7-F48A-470E-BC72-191E43B61509}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE0ADD7-F48A-470E-BC72-191E43B61509}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE0ADD7-F48A-470E-BC72-191E43B61509}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5E61EBE-68D0-4060-B263-F01F7243F491}
+	EndGlobalSection
+EndGlobal
