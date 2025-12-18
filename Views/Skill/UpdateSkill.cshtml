@@ -1,0 +1,70 @@
+﻿@model Skill
+@{
+    ViewData["Title"] = "Yetenek Güncelle";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="p-6 bg-gray-50 min-h-screen flex items-center justify-center">
+    <div class="max-w-2xl w-full">
+
+        <div class="mb-6">
+            <a href="/Skill/SkillList/" class="inline-flex items-center text-sm text-gray-500 hover:text-amber-600 transition-colors group">
+                <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Değişiklik yapmadan geri dön
+            </a>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden">
+            <div class="bg-amber-500 h-2 w-full"></div>
+
+            <div class="p-8">
+                <div class="mb-8 flex justify-between items-start">
+                    <div>
+                        <h1 class="text-2xl font-extrabold text-gray-800 tracking-tight">Yeteneği Güncelle</h1>
+                        <p class="text-gray-500 mt-2 text-sm">"#@Model.SkillId" numaralı yeteneğin bilgilerini düzenliyorsunuz.</p>
+                    </div>
+                    <span class="bg-amber-100 text-amber-700 text-[10px] uppercase font-bold px-3 py-1 rounded-full">Düzenleme Modu</span>
+                </div>
+
+                <form method="post" class="space-y-6">
+                    <input type="hidden" asp-for="SkillId" />
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Yetenek Adı</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                            </div>
+                            <input type="text" asp-for="SkillTitle"
+                                   class="block w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-gray-50/50 transition-all outline-none text-gray-700 font-medium"
+                                   placeholder="Yetenek adını girin..." required />
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="block text-sm font-semibold text-gray-700">Yetenek Seviyesi (%)</label>
+                            <span id="rangeValue" class="px-3 py-1 bg-amber-50 text-amber-600 text-xs font-bold rounded-full">@Model.SkillValue%</span>
+                        </div>
+                        <input type="range" asp-for="SkillValue" min="0" max="100"
+                               oninput="document.getElementById('rangeValue').innerText = this.value + '%'"
+                               class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-amber-500" />
+                    </div>
+
+                    <div class="flex gap-4 pt-4">
+                        <button type="submit" class="flex-1 inline-flex justify-center items-center px-6 py-3.5 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl transition-all duration-200 shadow-lg shadow-amber-100 transform active:scale-[0.98]">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                            Değişiklikleri Kaydet
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="bg-amber-50/50 px-8 py-4 border-t border-amber-100 text-center">
+                <p class="text-xs text-amber-700 font-medium italic">"Kaydet butonuna bastığınızda veriler anında güncellenecektir."</p>
+            </div>
+        </div>
+    </div>
+</div>
