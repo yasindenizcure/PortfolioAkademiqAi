@@ -1,51 +1,68 @@
 ﻿@model List<Experience>
-<section id="section4">
-	<div class="container">
-		<h2>Deneyimlerim</h2>
-		<div class="experience-timeline">
-			@foreach (var item in Model)
-			{
-				<div class="experience-block clearfix">
-					<div class="meta">
-					<span class="year">@item.WorkDate</span>
-					<span class="company">@item.CompanyName</span>
-				</div> <!-- end .meta -->
-				<div class="content">
-					<h5>@item.Title</h5>
-					<p>@item.Description</p>
-				</div> <!-- end .content -->
-				<div class="icon">
-					<i class="@item.IconUrl"></i>
-				</div> <!-- end .icon -->
-				<div class="line"></div>
-			</div> 
-			}
-		</div> 
-		<!-- Testimonials -->
-		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
-				<div class="testimonial-slider owl-carousel">
-					<div>
-						<div class="image"><img src="/sility/images/testimonial.jpg" alt="alt text"></div>
-						<div class="sep"></div>
-						<p>" Awesome to work with. Incredibly organized, easy to communicate with, responsive with next iterations, and beautiful work. "</p>
-						<span class="author">swetain , CEO of Texco Company</span>
-					</div>
-					<div>
-						<div class="image"><img src="/sility/images/testimonial.jpg" alt="alt text"></div>
-						<div class="sep"></div>
-						<p>" Awesome to work with. Incredibly organized, easy to communicate with, responsive with next iterations, and beautiful work. "</p>
-						<span class="author">swetain , CEO of Texco Company</span>
-					</div>
-					<div>
-						<div class="image"><img src="/sility/images/testimonial.jpg" alt="alt text"></div>
-						<div class="sep"></div>
-						<p>" Awesome to work with. Incredibly organized, easy to communicate with, responsive with next iterations, and beautiful work. "</p>
-						<span class="author">swetain , CEO of Texco Company</span>
-					</div>
-				</div> <!-- end .testimonial-slider -->
-			</div> <!-- end .col-sm-8 -->
-		</div> <!-- end .row -->
 
-	</div> <!-- end .container -->
-</section> <!-- end #section1 -->
+<section id="section4" style="padding: 100px 0; background-color: #fbfbfd; font-family: 'Inter', -apple-system, sans-serif;">
+    <div class="container">
+        <h2 style="font-size: 36px; font-weight: 900; color: #1d1d1f; margin-bottom: 60px; text-align: center; letter-spacing: -1.5px;">Deneyimlerim</h2>
+
+        <div class="experience-timeline" style="position: relative; max-width: 900px; margin: 0 auto; padding: 20px 0;">
+            <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: #e5e5e7; transform: translateX(-50%);"></div>
+
+            @foreach (var item in Model)
+            {
+                <div class="experience-block" style="position: relative; margin-bottom: 60px; width: 100%; display: flex; justify-content: space-between; align-items: center;">
+
+                    <div style="width: 45%; text-align: right; padding-right: 30px;">
+                        <span style="display: inline-block; padding: 4px 12px; background: #f2f2f7; border-radius: 8px; color: #007aff; font-size: 13px; font-weight: 700; margin-bottom: 10px;">@item.WorkDate</span>
+                        <h4 style="font-size: 16px; font-weight: 800; color: #1d1d1f; margin-bottom: 5px;">@item.CompanyName</h4>
+                    </div>
+
+                    <div style="position: absolute; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background: #fff; border: 2px solid #007aff; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                        <i class="@item.IconUrl" style="color: #007aff; font-size: 20px;"></i>
+                    </div>
+
+                    <div style="width: 45%; padding-left: 30px; text-align: left;">
+                        <h5 style="font-size: 18px; font-weight: 700; color: #1d1d1f; margin-bottom: 8px;">@item.Title</h5>
+                        <p style="font-size: 14px; color: #86868b; line-height: 1.6; margin: 0;">@item.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div style="height: 100px;"></div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 style="font-size: 24px; font-weight: 800; color: #1d1d1f; margin-bottom: 40px; text-align: center;">Referanslar</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+
+                    <div style="flex: 1; min-width: 300px; max-width: 380px; background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid #f2f2f7; transition: 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
+                            <img src="/sility/images/testimonial.jpg" alt="author" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid #f2f2f7;">
+                            <div>
+                                <h6 style="margin: 0; font-size: 15px; font-weight: 800; color: #1d1d1f;">Swetain</h6>
+                                <span style="font-size: 12px; color: #86868b; font-weight: 500;">CEO of Texco Company</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 15px; color: #424245; line-height: 1.7; font-style: italic; margin: 0;">
+                            "Yasin ile çalışmak harikaydı. Son derece organize, iletişimi kolay ve backend konusundaki hakimiyeti projeye büyük değer kattı."
+                        </p>
+                    </div>
+
+                    <div style="flex: 1; min-width: 300px; max-width: 380px; background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid #f2f2f7; transition: 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
+                            <img src="/sility/images/testimonial.jpg" alt="author" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid #f2f2f7;">
+                            <div>
+                                <h6 style="margin: 0; font-size: 15px; font-weight: 800; color: #1d1d1f;">Müşteri Adı</h6>
+                                <span style="font-size: 12px; color: #86868b; font-weight: 500;">Project Manager</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 15px; color: #424245; line-height: 1.7; font-style: italic; margin: 0;">
+                            "Backend çözümleri beklediğimizden çok daha hızlı ve güvenli. Profesyonel bir yaklaşımı var."
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

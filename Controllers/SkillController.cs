@@ -53,13 +53,8 @@ namespace AkademiQPortfolio.Controllers
         [HttpPost]
         public IActionResult UpdateSkill(Skill skill)
         {
-            var value = _context.Skills.Find(skill.SkillId);
-            if (value != null)
-            {
-                value.SkillTitle = skill.SkillTitle;
-                value.SkillValue = skill.SkillValue;
-                _context.SaveChanges();
-            }
+            _context.Skills.Update(skill);
+            _context.SaveChanges();
             return RedirectToAction("SkillList");
 
         }

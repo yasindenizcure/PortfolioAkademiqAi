@@ -28,6 +28,14 @@ namespace AkademiQPortfolio.Controllers
             ViewBag.skillAvgValue = skillAvgValue;
             ViewBag.skillValueBiggerThan70 = skillValueBiggerThan70;
 
+            var messageSubjectByWorkOffer = _context.Messages.Where(x => x.MessageSubject == "Proje Teklifi & İş Birliği").Count();
+            var messageSubjectByApiDevelopment = _context.Messages.Where(x => x.MessageSubject == "Web / API Geliştirme Talebi").Count();
+            var messageSubjectByEducationOffer = _context.Messages.Where(x => x.MessageSubject == "Eğitim & Kurumsal Eğitim Talebi").Count();
+
+            ViewBag.messageSubjectByWorkOffer = messageSubjectByWorkOffer;
+            ViewBag.messageSubjectByApiDevelopment = messageSubjectByApiDevelopment;
+            ViewBag.messageSubjectByEducationOffer = messageSubjectByEducationOffer;
+
             return View();
         }
     }

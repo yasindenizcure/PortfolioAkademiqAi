@@ -1,38 +1,90 @@
 ﻿@model List<About>
-<section id="section2">
-	<div class="container">
-		<h2>Hakkında</h2>
-		@foreach (var item in Model)
-		{
-			<div class="row">
-				<div class="col-sm-3">
-					<img src="@item.ImageUrl" alt="man" class="img-responsive section-img">
-				</div> <!-- end .col-sm-3 -->
-				<div class="col-sm-9">
-					<h3 class="small-margin-bottom">@item.NameSurname</h3>
-					<h5>@item.Title</h5>
-					<p>@item.Description</p>
-					<div class="signature"><img src="/sility/images/signature.png" alt="signature" class="img-responsive"></div>
-					<ul class="list-unstyled text-uppercase">
-						<li><b>Doğum Tarihi:</b> 31 Ekim 2002</li>
-						<li><b>Telefon:</b> @item.Phone</li>
-						<li><b>Email:</b> @item.Email</li>
-						<li><b>Adres:</b> @item.Address</li>
-						<li><b>Github:</b> http://github.com/yasindenizcure</li>
-					</ul> <!-- end .list-unstyled -->
-					<div class="spacer"></div>
-					<h3>Ne İş Yapıyorum?</h3>
-					<div class="row">
-						<div class="col-sm-4">
-							<div class="service">
-								<div class="icon"><i class="ion-monitor"></i></div>
-								<h5>@item.Title</h5>
-							</div> <!-- end .service -->
-						</div> <!-- end .col-sm-4 -->
-					</div> <!-- end .row -->
-				</div> <!-- end .col-sm-9 -->
-			</div>
-		}
-		<!-- end .row -->
-	</div> <!-- end .container -->
-</section> <!-- end #section1 -->
+
+<section id="section2" style="padding: 80px 0; background-color: #fff;">
+    <div class="container">
+        <h2 style="font-size: 32px; font-weight: 900; color: #1a1a1a; margin-bottom: 50px; display: flex; align-items: center; gap: 15px;">
+            <span style="width: 5px; height: 35px; background: #2563eb; display: inline-block; border-radius: 10px;"></span>
+            Hakkımda
+        </h2>
+
+        @foreach (var item in Model)
+        {
+            <div class="row" style="display: flex; flex-wrap: wrap; gap: 40px;">
+                <div class="col-sm-3" style="flex: 0 0 280px;">
+                    <img src="@item.ImageUrl" alt="@item.NameSurname" style="width: 100%; border-radius: 25px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border: 8px solid #f8fafc;">
+                </div>
+
+                <div class="col-sm-9" style="flex: 1;">
+                    <h3 style="font-size: 28px; font-weight: 800; color: #1e293b; margin-bottom: 5px;">@item.NameSurname</h3>
+                    <h5 style="color: #2563eb; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; margin-bottom: 25px;">@item.Title</h5>
+
+                    <p style="color: #64748b; line-height: 1.8; font-size: 16px; margin-bottom: 30px; border-left: 3px solid #e2e8f0; padding-left: 20px; font-style: italic;">
+                        @item.Description
+                    </p>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px;">
+
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 35px; height: 35px; background: #eff6ff; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                <svg style="width: 18px; height: 18px; fill: #2563eb;" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" /></svg>
+                            </div>
+                            <span style="font-size: 14px; color: #334155;"><b>Doğum:</b> 31 Ekim 2002</span>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 35px; height: 35px; background: #ecfdf5; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                <svg style="width: 18px; height: 18px; fill: #10b981;" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
+                            </div>
+                            <span style="font-size: 14px; color: #334155;"><b>Telefon:</b> @item.Phone</span>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 35px; height: 35px; background: #fff1f2; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                <svg style="width: 18px; height: 18px; fill: #f43f5e;" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                            </div>
+                            <span style="font-size: 14px; color: #334155;"><b>Email:</b> @item.Email</span>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 35px; height: 35px; background: #f8fafc; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                <svg style="width: 18px; height: 18px; fill: #000;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+                            </div>
+                            <span style="font-size: 14px; color: #334155;"><b>Github:</b> yasindenizcure</span>
+                        </div>
+                    </div>
+
+                    <div style="height: 1px; background: #f1f5f9; width: 100%; margin-bottom: 35px;"></div>
+
+                    <h3 style="font-size: 22px; font-weight: 900; color: #1e293b; margin-bottom: 25px; text-transform: uppercase; letter-spacing: -1px;">Ne İş Yapıyorum?</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+
+                        <div style="padding: 25px; background: #f8fafc; border-radius: 20px; transition: 0.3s; border: 1px solid #f1f5f9;">
+                            <div style="margin-bottom: 15px;">
+                                <svg style="width: 30px; height: 30px; fill: #2563eb;" viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z" /></svg>
+                            </div>
+                            <h5 style="font-weight: 800; font-size: 14px; color: #1e293b; margin-bottom: 8px;">WEB GELİŞTİRME</h5>
+                            <p style="font-size: 12px; color: #64748b; margin: 0;">Modern ve dinamik arayüzler tasarlıyorum.</p>
+                        </div>
+
+                        <div style="padding: 25px; background: #f8fafc; border-radius: 20px; transition: 0.3s; border: 1px solid #f1f5f9;">
+                            <div style="margin-bottom: 15px;">
+                                <svg style="width: 30px; height: 30px; fill: #10b981;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" /></svg>
+                            </div>
+                            <h5 style="font-weight: 800; font-size: 14px; color: #1e293b; margin-bottom: 8px;">API SİSTEMLERİ</h5>
+                            <p style="font-size: 12px; color: #64748b; margin: 0;">Güçlü ve güvenli backend mimarileri.</p>
+                        </div>
+
+                        <div style="padding: 25px; background: #f8fafc; border-radius: 20px; transition: 0.3s; border: 1px solid #f1f5f9;">
+                            <div style="margin-bottom: 15px;">
+                                <svg style="width: 30px; height: 30px; fill: #f59e0b;" viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-5-7h2a3 3 0 0 0 6 0h2a5 5 0 0 1-10 0zM7 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm10 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" /></svg>
+                            </div>
+                            <h5 style="font-weight: 800; font-size: 14px; color: #1e293b; margin-bottom: 8px;">UI/UX TASARIM</h5>
+                            <p style="font-size: 12px; color: #64748b; margin: 0;">Kullanıcı dostu estetik tasarımlar.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

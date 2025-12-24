@@ -1,12 +1,47 @@
-﻿<header class="header">
+﻿<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+	/* Yanıp sönme (Pulse) animasyonu */
+	@@keyframes freelance-pulse {
+		0% {
+			opacity: 1;
+			transform: scale(1);
+		}
+
+		50% {
+			opacity: 0.4;
+			transform: scale(1.2);
+		}
+
+		100% {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	.pulse-dot {
+		width: 8px;
+		height: 8px;
+		background-color: #34c759; /* Apple Yeşili */
+		border-radius: 50%;
+		display: inline-block;
+		margin-right: 8px;
+		animation: freelance-pulse 2s infinite ease-in-out;
+		box-shadow: 0 0 8px rgba(52, 199, 89, 0.6);
+	}
+</style>
+
+<header class="header">
 	<div class="top clearfix">
-		<a href="#section8" class="available"><i class="ion-ios-email-outline"></i><span>Available For Freelance</span></a>
+		<a href="#section8" class="available" style="display: flex; align-items: center;">
+			<span class="pulse-dot"></span>
+			<span>Freelance İşler İçin Müsaitim</span>
+		</a>
 		<div class="right-icons">
 			<a href="" class="open-search header-open-search"><i class="md md-search"></i></a>
 			<a href="" class="download"><i class="md md-file-download"></i></a>
 			<a href="" class="share"><i class="md md-more-vert"></i></a>
-		</div> <!-- end .right-icons -->
-		<!-- Popup -->
+		</div>
 		<div class="popup">
 			<nav class="social-nav">
 				<ul class="list-unstyled">
@@ -15,15 +50,17 @@
 					<li><a href="">Linkedin</a></li>
 					<li><a href="">Google+</a></li>
 					<li><a href="">Behance</a></li>
-				</ul> <!-- end .list-unstyled -->
-			</nav> <!-- end .social-nav -->
-		</div> <!-- end .popup -->
-	</div> <!-- end .top -->
+				</ul>
+			</nav>
+		</div>
+	</div>
 	<div class="bottom clearfix">
-		<div class="title"><a href="index.html">Yasin Cüre</a></div>
+		<div class="title">
+			<a href="/Statistics/StatisticsCards/" style="font-family: 'Dancing Script', cursive; font-size: 34px; text-transform: none;">Yasin Cüre</a>
+		</div>
 		<div class="header-action-button-wrapper">
 			<a href="" class="header-action-button action-button"><i class="md md-add"></i></a>
-		</div> <!-- end .header-action-button-wrapper -->
+		</div>
 		<a href="" class="responsive-menu-open">Menu <i class="fa fa-bars"></i></a>
 		<nav class="main-nav">
 			<ul class="list-unstyled">
@@ -33,24 +70,8 @@
 				<li><a href="#section4">Deneyimler</a></li>
 				<li><a href="#section5">Eğitimler</a></li>
 				<li><a href="#section6">Projelerim</a></li>
-				<li><a href="#section7">Blog</a></li>
 				<li><a href="#section8">Bana Yazın</a></li>
 			</ul>
-		</nav> <!-- end .main-nav -->
-	</div> <!-- end .bottom -->
+		</nav>
+	</div>
 </header>
-
-
-<!-- end .header -->
-<div class="responsive-menu">
-	<a href="" class="responsive-menu-close">Close <i class="ion-android-close"></i></a>
-	<nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
-</div> <!-- end .responsive-menu -->
-<!-- Section Navigation -->
-<div class="section-nav">
-	<nav class="section1">
-		<a href="#section2" class="forward"><i class="md md-chevron-right"></i></a>
-		<a href="#section1" class="backward"><i class="md md-chevron-left"></i></a>
-	</nav>
-</div> <!-- end .section-nav -->
-<!-- Sections -->
