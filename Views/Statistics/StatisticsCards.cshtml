@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewData["Title"] = "StatisticsCards";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<div class="p-6 bg-gray-50 min-h-screen">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-2xl font-bold text-gray-800 mb-8 flex align-center gap-2">
+            <span class="w-2 h-8 bg-indigo-600 rounded-full"></span>
+            Genel Bakış & İstatistikler
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="relative group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 mt-4">
+
+                <div class="absolute -top-5 -left-5 w-14 h-14 bg-blue-600 rounded-2xl rotate-12 shadow-lg shadow-blue-200 flex items-center justify-center group-hover:rotate-0 transition-transform duration-300 z-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white -rotate-12 group-hover:rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                    </svg>
+                </div>
+
+                <div class="relative pt-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Gelen Kutusu</p>
+                            <h3 class="text-4xl font-black text-gray-800 tracking-tight">@ViewBag.messageCount</h3>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-md tracking-tighter uppercase">Toplam</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-emerald-50/50 p-3 rounded-xl border border-emerald-100 transition-colors hover:bg-emerald-50">
+                            <p class="text-[10px] text-emerald-600 font-bold uppercase">Okundu</p>
+                            <div class="flex items-baseline gap-1">
+                                <p class="text-xl font-bold text-emerald-700">@ViewBag.messageCountByIsReadTrue</p>
+                                <span class="text-xs text-emerald-500">adet</span>
+                            </div>
+                        </div>
+                        <div class="bg-rose-50/50 p-3 rounded-xl border border-rose-100 transition-colors hover:bg-rose-50">
+                            <p class="text-[10px] text-rose-600 font-bold uppercase">Okunmadı</p>
+                            <div class="flex items-baseline gap-1">
+                                <p class="text-xl font-bold text-rose-700">@ViewBag.messageCountByIsReadFalse</p>
+                                <span class="text-xs text-rose-500">yeni</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative overflow-hidden group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div class="absolute -right-4 -top-4 w-24 h-24 bg-amber-50 rounded-full group-hover:scale-110 transition-transform duration-500"></div>
+                <div class="relative flex items-center gap-4">
+                    <div class="p-4 bg-amber-500 rounded-xl text-white shadow-lg shadow-amber-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-500">Toplam Yetenek</p>
+                        <h3 class="text-3xl font-bold text-gray-800">@ViewBag.skillCount</h3>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-xs font-semibold text-gray-600 italic">Genel Yetkinlik Ortalaması</span>
+                        <span class="text-xs font-bold text-amber-600">%@Convert.ToDecimal(ViewBag.skillAvgValue).ToString("0")</span>
+                    </div>
+                    <div class="w-full bg-gray-100 rounded-full h-3">
+                        <div class="bg-amber-500 h-3 rounded-full shadow-inner transition-all duration-1000" style="width: @ViewBag.skillAvgValue%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative overflow-hidden group bg-gradient-to-br from-emerald-500 to-teal-600 p-6 rounded-2xl shadow-lg shadow-emerald-200 hover:scale-[1.02] transition-all duration-300">
+                <div class="relative flex flex-col h-full justify-between">
+                    <div class="flex justify-between items-start">
+                        <div class="p-3 bg-white/20 backdrop-blur-md rounded-lg text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <span class="text-white/80 text-xs font-medium border border-white/30 px-2 py-1 rounded-full backdrop-blur-sm">Performans</span>
+                    </div>
+                    <div class="mt-8 text-white">
+                        <h3 class="text-4xl font-extrabold">@ViewBag.skillValueBiggerThan70</h3>
+                        <p class="text-emerald-100 text-sm opacity-90">70 Puan Üzeri Uzmanlık</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-white/20 text-white/90 text-xs italic">
+                        Yüksek yetkinlik seviyesindeki yeteneklerinizin özeti.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
