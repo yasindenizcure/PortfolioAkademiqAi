@@ -14,7 +14,8 @@ namespace AkademiQPortfolio.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var experienceList = _appDbContext.Experiences.ToList();
+            var experienceList = _appDbContext.Experiences.OrderByDescending(x=>x.ExperienceId).ToList();
+            ViewBag.testimonials = _appDbContext.Testimonials.ToList();
             return View(experienceList);
         }
     }

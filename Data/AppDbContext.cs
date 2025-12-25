@@ -15,7 +15,7 @@ public partial class AppDbContext : DbContext
         : base(options)
     {
     }
-    //singularize tekilleştirme tam tersi olsaydı pluralize çoğullaştırma
+
     public virtual DbSet<About> Abouts { get; set; }
 
     public virtual DbSet<Contact> Contacts { get; set; }
@@ -28,21 +28,21 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Message> Messages { get; set; }
 
+    public virtual DbSet<Project> Projects { get; set; }
+
     public virtual DbSet<Skill> Skills { get; set; }
 
-    public virtual DbSet<Work> Works { get; set; }
+    public virtual DbSet<Testimonial> Testimonials { get; set; }
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("server=DESKTOP-8TRT9BV\\MSSQLSERVER01;database=AkademiQPortfolioDb;integrated security=true;trustServerCertificate=true");
+        => optionsBuilder.UseSqlServer("server=DESKTOP-8TRT9BV\\MSSQLSERVER01;database=AkademiQPortfolioDb;integrated security=true;trustServerCertificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<About>(entity =>
         {
-            entity.HasNoKey();
-
-            entity.Property(e => e.AboutId).ValueGeneratedOnAdd();
             entity.Property(e => e.Address).HasMaxLength(50);
             entity.Property(e => e.Description).HasMaxLength(500);
             entity.Property(e => e.Email).HasMaxLength(50);
@@ -84,10 +84,18 @@ public partial class AppDbContext : DbContext
 
         modelBuilder.Entity<Message>(entity =>
         {
+            entity.Property(e => e.MessageSubject).HasMaxLength(50);
             entity.Property(e => e.MessageText).HasMaxLength(500);
             entity.Property(e => e.SendDate).HasColumnType("datetime");
             entity.Property(e => e.SenderEmail).HasMaxLength(50);
             entity.Property(e => e.SenderName).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<Project>(entity =>
+        {
+            entity.Property(e => e.ImageUrl).HasMaxLength(50);
+            entity.Property(e => e.Subtitle).HasMaxLength(50);
+            entity.Property(e => e.Title).HasMaxLength(50);
         });
 
         modelBuilder.Entity<Skill>(entity =>
@@ -95,9 +103,11 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.SkillTitle).HasMaxLength(50);
         });
 
-        modelBuilder.Entity<Work>(entity =>
+        modelBuilder.Entity<Testimonial>(entity =>
         {
-            entity.Property(e => e.Subtitle).HasMaxLength(50);
+            entity.Property(e => e.Description).HasMaxLength(250);
+            entity.Property(e => e.ImageUrl).HasMaxLength(50);
+            entity.Property(e => e.NameSurname).HasMaxLength(50);
             entity.Property(e => e.Title).HasMaxLength(50);
         });
 

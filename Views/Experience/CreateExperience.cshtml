@@ -1,0 +1,72 @@
+﻿@model Experience
+<style>
+    footer, .footer, .bottom-widgets, #footer {
+        display: none !important;
+    }
+    body, html {
+        background-color: #f5f5f7 !important;
+        overflow-x: hidden;
+    }
+    .content-wrapper, .main-panel {
+        min-height: 100vh !important;
+        background-color: #f5f5f7 !important;
+    }
+</style>
+@{
+    ViewData["Title"] = "Yeni Deneyim Ekle";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<div style="padding: 20px; font-family: 'Inter', sans-serif; background-color: #f5f5f7; min-height: calc(100vh - 50px);">
+
+    <div style="max-width: 850px; margin: 0 auto;">
+        <a href="/Experience/ExperienceList" style="text-decoration: none; color: #007aff; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 15px;">
+            <span class="material-symbols-outlined" style="font-size: 16px;">arrow_back</span> Listeye Dön
+        </a>
+
+        <div style="background: #ffffff; border-radius: 18px; padding: 25px 35px; border: 1px solid #e5e5e7; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+
+            <h2 style="font-size: 22px; font-weight: 800; color: #1d1d1f; margin: 0 0 20px 0; letter-spacing: -0.5px;">Deneyim Bilgileri</h2>
+
+            <form action="/Experience/CreateExperience" method="post">
+                <div class="row">
+                    <div class="col-sm-6" style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 13px; font-weight: 700; color: #424245; margin-bottom: 6px;">Şirket Adı</label>
+                        <input type="text" name="CompanyName" placeholder="Trendyol" style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid #d2d2d7; background: #fbfbfd; color: #1d1d1f; outline: none; font-size: 14px;" required />
+                    </div>
+
+                    <div class="col-sm-6" style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 13px; font-weight: 700; color: #424245; margin-bottom: 6px;">Pozisyon</label>
+                        <input type="text" name="Title" placeholder=".NET Developer" style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid #d2d2d7; background: #fbfbfd; color: #1d1d1f; outline: none; font-size: 14px;" required />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6" style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 13px; font-weight: 700; color: #424245; margin-bottom: 6px;">Dönem</label>
+                        <input type="text" name="WorkDate" placeholder="2022 - 2024" style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid #d2d2d7; background: #fbfbfd; color: #1d1d1f; outline: none; font-size: 14px;" required />
+                    </div>
+
+                    <div class="col-sm-6" style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 13px; font-weight: 700; color: #424245; margin-bottom: 6px;">İkon (ion-code vb.)</label>
+                        <input type="text" name="IconUrl" placeholder="ion-briefcase" style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid #d2d2d7; background: #fbfbfd; color: #1d1d1f; outline: none; font-size: 14px;" required />
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 13px; font-weight: 700; color: #424245; margin-bottom: 6px;">İş Tanımı</label>
+                    <textarea name="Description" rows="3" placeholder="Görevlerin..." style="width: 100%; padding: 10px 14px; border-radius: 10px; border: 1px solid #d2d2d7; background: #fbfbfd; color: #1d1d1f; outline: none; resize: none; font-size: 14px;" required></textarea>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" style="flex: 2; padding: 12px; background: #007aff; color: white; border: none; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer; transition: 0.2s;">
+                        Kaydet
+                    </button>
+                    <button type="reset" style="flex: 1; padding: 12px; background: #f2f2f7; color: #1d1d1f; border: none; border-radius: 10px; font-weight: 600; font-size: 14px; cursor: pointer;">
+                        İptal
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

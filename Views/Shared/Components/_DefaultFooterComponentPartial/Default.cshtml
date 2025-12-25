@@ -1,39 +1,59 @@
-﻿<footer class="footer">
-	<div class="top">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4">
-					<h4>Adres</h4>
-					<p>34903, Fatih Mahallesi<br />Pendik - İstanbul.</p>
-				</div>
-                    <div class="col-sm-4" style="flex: 1; min-width: 250px; text-align: center;">
-                        <h4 style="color: #fff; font-weight: 800; text-transform: uppercase; margin-bottom: 20px; font-size: 15px; letter-spacing: 1px;">Sosyal Medya</h4>
-                        <div class="social-icons" style="display: flex; justify-content: center; gap: 15px;">
+﻿@model List<Contact>
 
-                            <a href="#" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; background: #3b5998; border-radius: 12px; transition: 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                                <svg style="width: 20px; height: 20px; fill: white;" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
-                            </a>
+<footer class="footer" style="background: #1d1d1f; color: #f5f5f7; padding: 60px 0 30px 0; font-family: 'Inter', sans-serif;">
+    <div class="top">
+        <div class="container">
+            <div class="row" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-start;">
 
-                            <a href="#" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; background: #111; border-radius: 12px; transition: 0.3s; border: 1px solid #333;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                                <svg style="width: 18px; height: 18px; fill: white;" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
-                            </a>
-
-                            <a href="#" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; background: #E1306C; border-radius: 12px; transition: 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                                <svg style="width: 20px; height: 20px; fill: white;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
-                            </a>
-
-                            <a href="#" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; background: #0077b5; border-radius: 12px; transition: 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                                <svg style="width: 20px; height: 20px; fill: white;" viewBox="0 0 24 24"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.58c-1.14 0-2.06-.93-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.13-.92 2.06-2.06 2.06zM20.45 20.45h-3.56v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.15 1.46-2.15 2.96v5.7h-3.56V9h3.42v1.56h.05c.48-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z" /></svg>
-                            </a>
-
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div style="flex: 1; min-width: 200px;">
+                            <h4 style="color: #fff; font-weight: 800; text-transform: uppercase; margin-bottom: 25px; font-size: 13px; letter-spacing: 1.5px; border-left: 3px solid #007aff; padding-left: 10px;">ADRES</h4>
+                            <p style="color: #86868b; line-height: 1.8; font-size: 15px; margin: 0;">
+                                @item.Address
+                            </p>
                         </div>
+
+                        <div style="flex: 1; min-width: 200px;">
+                            <h4 style="color: #fff; font-weight: 800; text-transform: uppercase; margin-bottom: 25px; font-size: 13px; letter-spacing: 1.5px; border-left: 3px solid #34c759; padding-left: 10px;">ILETISIM</h4>
+                            <p style="color: #86868b; line-height: 1.8; font-size: 15px; margin: 0;">
+                                <strong style="color: #d2d2d7;">Tel:</strong> @item.Phone <br />
+                                <strong style="color: #d2d2d7;">Mail:</strong> @item.Email
+                            </p>
+                        </div>
+                    }
+                }
+
+                <div style="flex: 1; min-width: 250px;">
+                    <h4 style="color: #fff; font-weight: 800; text-transform: uppercase; margin-bottom: 25px; font-size: 13px; letter-spacing: 1.5px; border-left: 3px solid #ff3b30; padding-left: 10px;">SOSYAL MEDYA</h4>
+                    <div class="social-icons" style="display: flex; gap: 15px;">
+
+                        <a href="https://x.com/altercure" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: #2c2c2e; border-radius: 14px; transition: 0.4s;"
+                           onmouseover="this.style.background='#000'; this.style.transform='translateY(-5px)';"
+                           onmouseout="this.style.background='#2c2c2e'; this.style.transform='translateY(0)';">
+                            <svg style="width: 22px; height: 22px; fill: white;" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+                        </a>
+
+                        <a href="https://instagram.com/yasincure_" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: #2c2c2e; border-radius: 14px; transition: 0.4s;"
+                           onmouseover="this.style.background='radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)'; this.style.transform='translateY(-5px)';"
+                           onmouseout="this.style.background='#2c2c2e'; this.style.transform='translateY(0)';">
+                            <svg style="width: 22px; height: 22px; fill: white;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+                        </a>
+
+                        <a href="https://linkedin.com/in/yasin-cure" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: #2c2c2e; border-radius: 14px; transition: 0.4s;"
+                           onmouseover="this.style.background='#0077b5'; this.style.transform='translateY(-5px)';"
+                           onmouseout="this.style.background='#2c2c2e'; this.style.transform='translateY(0)';">
+                            <svg style="width: 22px; height: 22px; fill: white;" viewBox="0 0 24 24"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.58c-1.14 0-2.06-.93-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.13-.92 2.06-2.06 2.06zM20.45 20.45h-3.56v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.15 1.46-2.15 2.96v5.7h-3.56V9h3.42v1.56h.05c.48-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z" /></svg>
+                        </a>
                     </div>
-				<div class="col-sm-4">
-					<h4>İletişim</h4>
-					<p>Tel: +90 542 681 73 02<br />Mail: yasindenizcure@gmail.com</p>
-				</div>
-			</div> 
-		</div> 
-	</div> 
-	<div class="bottom">Copyright &copy; AkademiQ.Ai. Tüm hakları saklıdır.</div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom" style="text-align: center; border-top: 1px solid #2c2c2e; margin-top: 50px; padding-top: 30px; font-size: 13px; color: #424245; font-weight: 500;">
+        Copyright &copy; @DateTime.Now.Year AkademiQ.Ai. Tüm hakları saklıdır.
+    </div>
 </footer>

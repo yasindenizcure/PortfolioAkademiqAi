@@ -1,0 +1,131 @@
+﻿@model Education
+@{
+    ViewData["Title"] = "Eğitim Bilgilerini Güncelle";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<style>
+    footer, .footer, .bottom-widgets, #footer {
+        display: none !important;
+    }
+
+    body {
+        background-color: #f5f5f7 !important;
+    }
+
+    .update-container {
+        display: flex;
+        gap: 30px;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding-top: 10px;
+    }
+
+    .preview-side {
+        flex: 1;
+        background: linear-gradient(135deg, #2c2c2e 0%, #5856d6 100%);
+        border-radius: 24px;
+        padding: 30px;
+        color: white;
+        height: fit-content;
+        position: sticky;
+        top: 20px;
+        box-shadow: 0 20px 40px rgba(88, 86, 214, 0.2);
+    }
+
+    .form-side {
+        flex: 1.8;
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 35px;
+        border: 1px solid #e5e5e7;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+
+    .input-style {
+        width: 100%;
+        padding: 12px 16px;
+        border-radius: 12px;
+        border: 1px solid #d2d2d7;
+        background: #fbfbfd;
+        color: #1d1d1f;
+        outline: none;
+        font-size: 14px;
+        transition: 0.3s;
+        margin-top: 8px;
+    }
+
+        .input-style:focus {
+            border-color: #5856d6;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(88, 86, 214, 0.1);
+        }
+</style>
+
+<div style="padding: 30px; font-family: 'Inter', sans-serif;">
+
+    <div style="max-width: 1100px; margin: 0 auto 20px auto;">
+        <a href="/Education/EducationList" style="text-decoration: none; color: #5856d6; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
+            <span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span> Listeye Geri Dön
+        </a>
+    </div>
+
+    <div class="update-container">
+
+        <div class="preview-side">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
+                <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <span class="material-symbols-outlined" style="font-size: 28px; color: white;">school</span>
+                </div>
+                <div>
+                    <h3 style="margin: 0; font-size: 18px; font-weight: 700; color: white;">Eğitim Kaydı</h3>
+                    <span style="font-size: 12px; opacity: 0.8; color: white;">Mevcut Bilgiler</span>
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 16px; border-left: 4px solid white;">
+                <h4 style="margin: 0; font-size: 16px;">@Model.Title</h4>
+                <p style="margin: 8px 0; font-size: 14px; font-weight: 500; opacity: 0.9;">@Model.Department</p>
+                <div style="display: flex; align-items: center; gap: 5px; font-size: 12px; opacity: 0.7;">
+                    <i class="fa-regular fa-calendar"></i> @Model.EducationDate
+                </div>
+            </div>
+
+            <p style="margin-top: 25px; font-size: 13px; line-height: 1.6; opacity: 0.8; font-style: italic;">
+                "Bu kayıt üzerinde yapacağınız değişiklikler anında portfolyonuzda güncellenecektir."
+            </p>
+        </div>
+
+        <div class="form-side">
+            <h2 style="font-size: 24px; font-weight: 800; color: #1d1d1f; margin: 0 0 30px 0; letter-spacing: -0.5px;">Eğitimi Düzenle</h2>
+
+            <form action="/Education/UpdateEducation" method="post">
+                @Html.HiddenFor(x => x.EducationId) <div style="margin-bottom: 20px;">
+                    <label style="font-size: 13px; font-weight: 700; color: #424245;">Okul / Eğitim Adı</label>
+                    <input type="text" name="Title" value="@Model.Title" class="input-style" placeholder="Örn: İstanbul Teknik Üniversitesi" required />
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6" style="margin-bottom: 20px;">
+                        <label style="font-size: 13px; font-weight: 700; color: #424245;">Bölüm / Branş</label>
+                        <input type="text" name="Department" value="@Model.Department" class="input-style" placeholder="Örn: Yönetim Bilişim Sistemleri" required />
+                    </div>
+
+                    <div class="col-sm-6" style="margin-bottom: 20px;">
+                        <label style="font-size: 13px; font-weight: 700; color: #424245;">Eğitim Tarihi</label>
+                        <input type="text" name="EducationDate" value="@Model.EducationDate" class="input-style" placeholder="Örn: 2018 - 2022" required />
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 15px; margin-top: 10px;">
+                    <button type="submit" style="flex: 2; padding: 14px; background: #5856d6; color: white; border: none; border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 12px rgba(88,86,214,0.2);">
+                        Güncellemeyi Kaydet
+                    </button>
+                    <a href="/Education/EducationList" style="flex: 1; text-align: center; text-decoration: none; padding: 14px; background: #f2f2f7; color: #1d1d1f; border-radius: 12px; font-weight: 600; font-size: 15px; transition: 0.3s;">
+                        İptal
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

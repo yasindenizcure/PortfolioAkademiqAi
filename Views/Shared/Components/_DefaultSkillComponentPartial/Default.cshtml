@@ -1,62 +1,64 @@
-﻿<section id="section3" style="padding: 90px 0; background-color: #fbfbfd; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+﻿@model List<Skill>
+
+@{
+    var colorPalette = new[] { "#007aff", "#34c759", "#ff9500", "#ff2d55", "#5856d6", "#af52de", "#5ac8fa", "#ff3b30" };
+    int colorIndex = 0;
+}
+
+<section id="section3" style="padding: 90px 0; background-color: #fbfbfd; font-family: 'Inter', sans-serif;">
     <div class="container">
-        <h2 style="font-size: 34px; font-weight: 800; color: #1d1d1f; margin-bottom: 60px; text-align: center; letter-spacing: -0.5px;">Yeteneklerim</h2>
+        <h2 style="font-size: 34px; font-weight: 800; color: #1d1d1f; margin-bottom: 60px; text-align: center; letter-spacing: -1px;">Yeteneklerim</h2>
 
         <div class="row" style="display: flex; flex-wrap: wrap; gap: 30px;">
 
-            <div class="col-sm-6" style="flex: 1; min-width: 320px; background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
-                <h4 style="font-size: 20px; font-weight: 700; color: #1d1d1f; margin-bottom: 30px; display: flex; align-items: center; gap: 10px;">
-                    <span style="width: 8px; height: 8px; background: #007aff; border-radius: 50%;"></span> Teknik Yetkinlikler
+            <div class="col-sm-6" style="flex: 1; min-width: 320px; background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid #f2f2f7;">
+                <h4 style="font-size: 18px; font-weight: 700; color: #1d1d1f; margin-bottom: 35px; display: flex; align-items: center; gap: 12px;">
+                    <span style="width: 10px; height: 10px; background: #007aff; border-radius: 50%;"></span> Teknik Yetkinlikler
                 </h4>
 
-                @foreach (var skill in new[] { new { Name = "Wordpress", Val = 85, Color = "#007aff" }, new { Name = "Photoshop", Val = 99, Color = "#5856d6" }, new { Name = "HTML & CSS", Val = 75, Color = "#ff2d55" }, new { Name = "Javascript", Val = 67, Color = "#ffcc00" } })
+                @if (Model != null)
                 {
-                    <div style="margin-bottom: 25px;">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                            <label style="font-size: 14px; font-weight: 600; color: #424245;">@skill.Name</label>
-                            <span style="font-size: 13px; font-weight: 700; color: @skill.Color;">@skill.Val%</span>
+                    @foreach (var item in Model)
+                    {
+                        var currentColor = colorPalette[colorIndex % colorPalette.Length];
+                        colorIndex++;
+
+                        <div style="margin-bottom: 25px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <label style="font-size: 14px; font-weight: 600; color: #1d1d1f;">@item.SkillTitle</label>
+                                <span style="font-size: 13px; font-weight: 800; color: @currentColor;">%@item.SkillValue</span>
+                            </div>
+                            <div style="width: 100%; height: 8px; background: #f2f2f7; border-radius: 10px; overflow: hidden;">
+                                <div style="width: @item.SkillValue%; height: 100%; background: @currentColor; border-radius: 10px; transition: width 1.5s cubic-bezier(0.1, 0, 0.2, 1); box-shadow: 0 0 10px @(currentColor + "44");"></div>
+                            </div>
                         </div>
-                        <div style="width: 100%; height: 8px; background: #f2f2f7; border-radius: 10px; overflow: hidden;">
-                            <div style="width: @skill.Val%; height: 100%; background: @skill.Color; border-radius: 10px; transition: width 1.5s ease-in-out;"></div>
-                        </div>
-                    </div>
+                    }
                 }
             </div>
 
-            <div class="col-sm-6" style="flex: 1; min-width: 320px; background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
-                <h4 style="font-size: 20px; font-weight: 700; color: #1d1d1f; margin-bottom: 30px; display: flex; align-items: center; gap: 10px;">
-                    <span style="width: 8px; height: 8px; background: #34c759; border-radius: 50%;"></span> Bilgi Alanları
+            <div class="col-sm-6" style="flex: 1; min-width: 320px; background: #fff; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid #f2f2f7;">
+                <h4 style="font-size: 18px; font-weight: 700; color: #1d1d1f; margin-bottom: 35px; display: flex; align-items: center; gap: 12px;">
+                    <span style="width: 10px; height: 10px; background: #34c759; border-radius: 50%;"></span> Bilgi Alanları
                 </h4>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                    @foreach (var item in new[] { "SEO Optimization", "UI/UX Design", "Web Development", "Digital Marketing", "Logo Design", "Mobile App Design", "Grid & Layout", "Visual Effects", "Photography" })
+
+                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                    @{
+                        int badgeColorIndex = 0;
+                    }
+                    @foreach (var area in new[] { "ASP.NET Core", "Entity Framework", "Web API", "SQL Server", "Clean Architecture", "OOP", "Microservices",})
                     {
-                        <span style="background: #f5f5f7; color: #1d1d1f; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1px solid #e5e5e7; transition: 0.3s; cursor: default;" onmouseover="this.style.background='#007aff'; this.style.color='#fff';" onmouseout="this.style.background='#f5f5f7'; this.style.color='#1d1d1f';">
-                            @item
+                        var bColor = colorPalette[badgeColorIndex % colorPalette.Length];
+                        badgeColorIndex++;
+
+                        <span style="background: #fbfbfd; color: #424245; padding: 10px 20px; border-radius: 14px; font-size: 13px; font-weight: 600; border: 1px solid #e5e5e7; transition: 0.3s; cursor: default;"
+                              onmouseover="this.style.borderColor='@bColor'; this.style.color='@bColor'; this.style.transform='translateY(-2px)';"
+                              onmouseout="this.style.borderColor='#e5e5e7'; this.style.color='#424245'; this.style.transform='translateY(0)';">
+                            @area
                         </span>
                     }
                 </div>
             </div>
-        </div>
 
-        <div style="height: 60px;"></div>
-
-        <h4 style="font-size: 20px; font-weight: 700; color: #1d1d1f; margin-bottom: 40px; text-align: center;">Dil Yetkinliği</h4>
-        <div class="row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
-
-            @foreach (var lang in new[] { new { Name = "İngilizce", Level = "Orta Üst Seviye", Perc = 90, Color = "#007aff" }, new { Name = "Almanca", Level = "Temel Seviye", Perc = 65, Color = "#ff9500" } })
-            {
-                <div style="text-align: center; background: #fff; padding: 30px; border-radius: 30px; width: 220px; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
-                    <div style="position: relative; width: 120px; height: 120px; margin: 0 auto 20px;">
-                        <svg viewBox="0 0 36 36" style="width: 100%; height: 100%; transform: rotate(-90deg);">
-                            <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#f2f2f7" stroke-width="3" />
-                            <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="@lang.Color" stroke-width="3" stroke-dasharray="@lang.Perc, 100" stroke-linecap="round" />
-                        </svg>
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; font-weight: 800; color: #1d1d1f;">%@lang.Perc</div>
-                    </div>
-                    <label style="display: block; font-size: 15px; font-weight: 700; color: #1d1d1f; margin-bottom: 5px;">@lang.Name</label>
-                    <span style="font-size: 12px; color: #86868b; font-weight: 500; text-transform: uppercase;">@lang.Level</span>
-                </div>
-            }
         </div>
     </div>
 </section>

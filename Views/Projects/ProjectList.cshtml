@@ -1,0 +1,47 @@
+﻿@model List<Project>
+@{
+    ViewData["Title"] = "Projelerim";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<div style="padding: 40px; font-family: 'Inter', sans-serif; background-color: #f5f5f7; min-height: 100vh;">
+
+    <div style="max-width: 1200px; margin: 0 auto 40px auto; display: flex; justify-content: space-between; align-items: flex-end;">
+        <div>
+            <h1 style="font-size: 32px; font-weight: 800; color: #1d1d1f; margin: 0; letter-spacing: -1.5px;">Proje Portfolyom</h1>
+            <p style="color: #86868b; margin-top: 8px; font-size: 16px;">Geliştirdiğin tüm projeleri buradan yönetebilirsin.</p>
+        </div>
+        <a href="/Projects/CreateProject" style="text-decoration: none; background: #007aff; color: white; padding: 14px 28px; border-radius: 14px; font-weight: 600; font-size: 14px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,122,255,0.2);" onmouseover="this.style.background='#005bb5'" onmouseout="this.style.background='#007aff'">
+            + Yeni Proje Ekle
+        </a>
+    </div>
+
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
+        @foreach (var item in Model)
+        {
+            <div style="background: #ffffff; border-radius: 22px; overflow: hidden; border: 1px solid #e5e5e7; transition: 0.4s ease; position: relative; display: flex; flex-direction: column;"
+                 onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)';"
+                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+
+                <div style="width: 100%; height: 200px; overflow: hidden; background: #f2f2f7;">
+                    <img src="@item.ImageUrl" alt="@item.Title" style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;"
+                         onerror="this.src='https://placehold.co/600x400?text=Görsel+Yok';">
+                </div>
+
+                <div style="padding: 20px; flex-grow: 1;">
+                    <span style="font-size: 11px; font-weight: 800; color: #007aff; text-transform: uppercase; letter-spacing: 1px;">@item.Subtitle</span>
+                    <h3 style="font-size: 20px; font-weight: 700; color: #1d1d1f; margin: 8px 0 15px 0; line-height: 1.2;">@item.Title</h3>
+
+                    <div style="display: flex; gap: 10px; margin-top: auto;">
+                        <a href="/Projects/UpdateProject/@item.ProjectId" style="flex: 1; text-align: center; text-decoration: none; padding: 10px; background: #f2f2f7; color: #1d1d1f; border-radius: 10px; font-size: 13px; font-weight: 700; transition: 0.2s;" onmouseover="this.style.background='#e5e5e7'" onmouseout="this.style.background='#f2f2f7'">
+                            Düzenle
+                        </a>
+                        <a href="/Projects/DeleteProject/@item.ProjectId" onclick="return confirm('Bu projeyi silmek istediğine emin misin?')" style="flex: 1; text-align: center; text-decoration: none; padding: 10px; background: #fff1f0; color: #ff3b30; border-radius: 10px; font-size: 13px; font-weight: 700; transition: 0.2s;" onmouseover="this.style.background='#ffccc7'" onmouseout="this.style.background='#fff1f0'">
+                            Sil
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿@model List<Testimonial>
+@{
+    ViewData["Title"] = "Referanslarım";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<div style="padding: 40px; font-family: 'Inter', sans-serif; background-color: #f5f5f7; min-height: 100vh;">
+
+    <div style="max-width: 1200px; margin: 0 auto 40px auto; display: flex; justify-content: space-between; align-items: flex-end;">
+        <div>
+            <h1 style="font-size: 32px; font-weight: 800; color: #1d1d1f; margin: 0; letter-spacing: -1.5px;">Referans Yönetimi</h1>
+            <p style="color: #86868b; margin-top: 8px; font-size: 16px;">Hakkınızda yapılan değerlendirmeleri buradan yönetin.</p>
+        </div>
+        <a href="/Testimonial/CreateTestimonial" style="text-decoration: none; background: #34c759; color: white; padding: 14px 28px; border-radius: 14px; font-weight: 600; font-size: 14px; transition: 0.3s; box-shadow: 0 4px 15px rgba(52,199,89,0.2);" onmouseover="this.style.background='#28a745'" onmouseout="this.style.background='#34c759'">
+            + Yeni Referans Ekle
+        </a>
+    </div>
+
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px;">
+        @foreach (var item in Model)
+        {
+            <div style="background: #ffffff; border-radius: 24px; padding: 30px; border: 1px solid #e5e5e7; transition: 0.3s ease; display: flex; flex-direction: column; position: relative;"
+                 onmouseover="this.style.borderColor='#34c759'; this.style.transform='translateY(-5px)';"
+                 onmouseout="this.style.borderColor='#e5e5e7'; this.style.transform='translateY(0)';">
+
+                <span style="position: absolute; top: 20px; right: 30px; font-size: 60px; color: #f2f2f7; font-family: 'Georgia'; line-height: 0;">&ldquo;</span>
+
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <img src="@item.ImageUrl" alt="@item.NameSurname" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #f2f2f7;"
+                         onerror="this.src='https://ui-avatars.com/api/?name=@item.NameSurname&background=34c759&color=fff';">
+                    <div>
+                        <h4 style="margin: 0; font-size: 17px; font-weight: 700; color: #1d1d1f;">@item.NameSurname</h4>
+                        <p style="margin: 2px 0 0 0; font-size: 12px; font-weight: 700; color: #34c759; text-transform: uppercase; letter-spacing: 0.5px;">@item.Title</p>
+                    </div>
+                </div>
+
+                <div style="flex-grow: 1; margin-bottom: 25px;">
+                    <p style="font-size: 14px; line-height: 1.6; color: #424245; font-style: italic; margin: 0;">
+                        "@item.Description"
+                    </p>
+                </div>
+
+                <div style="display: flex; gap: 10px; border-top: 1px solid #f2f2f7; padding-top: 20px;">
+                    <a href="/Testimonial/UpdateTestimonial/@item.TestimonialId" style="flex: 1; text-align: center; text-decoration: none; padding: 10px; background: #f2f2f7; color: #1d1d1f; border-radius: 12px; font-size: 13px; font-weight: 700; transition: 0.2s;" onmouseover="this.style.background='#e5e5e7'" onmouseout="this.style.background='#f2f2f7'">
+                        Düzenle
+                    </a>
+                    <a href="/Testimonial/DeleteTestimonial/@item.TestimonialId" onclick="return confirm('Bu referansı silmek istediğine emin misin?')" style="flex: 1; text-align: center; text-decoration: none; padding: 10px; background: #fff1f0; color: #ff3b30; border-radius: 12px; font-size: 13px; font-weight: 700; transition: 0.2s;" onmouseover="this.style.background='#ffccc7'" onmouseout="this.style.background='#fff1f0'">
+                        Sil
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

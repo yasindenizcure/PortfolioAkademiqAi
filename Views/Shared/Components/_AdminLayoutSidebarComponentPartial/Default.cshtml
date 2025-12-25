@@ -1,38 +1,57 @@
-﻿<nav class="flex flex-col gap-2">
-	<a class="flex items-center gap-3 rounded-full bg-primary px-4 py-3 text-white shadow-lg shadow-primary/20 transition-all hover:brightness-110" href="/Statistics/StatisticsCards/">
-		<span class="material-symbols-outlined icon-fill">dashboard</span>
-		<span class="text-sm font-semibold">Dashboard</span>
-	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="#">
-		<span class="material-symbols-outlined group-hover:text-primary transition-colors">folder_open</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Projelerim</span>
-	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Skill/SkillList/">
-		<span class="material-symbols-outlined group-hover:text-primary transition-colors">code</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Yeteneklerim</span>
-	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="#">
-		<span class="material-symbols-outlined group-hover:text-primary transition-colors">history_edu</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Deneyimler</span>
-	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="/Contact/Messages/">
-		<span class="material-symbols-outlined group-hover:text-primary transition-colors">mail</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Mesajlar</span>
+﻿@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+}
 
-		<span class="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">
-			@await Component.InvokeAsync("_AdminLayoutSidebarMessageCountPartial")
-		</span>
-	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="#">
-		<span class="material-symbols-outlined transition-colors" style="color: inherit;">school</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Eğitim</span>
-	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="#">
-		<span class="material-symbols-outlined transition-colors" style="color: inherit;">star</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Referanslar</span>
-	</a>
-	<a class="group flex items-center gap-3 rounded-full px-4 py-3 text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50" href="#">
-		<span class="material-symbols-outlined transition-colors" style="color: inherit;">person</span>
-		<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Hakkımda</span>
-	</a>
+<nav class="flex flex-col gap-2">
+    <a class="flex items-center gap-3 rounded-full px-4 py-3 transition-all @(currentController == "Statistics" ? "bg-primary text-white shadow-lg shadow-primary/20" : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")"
+       href="/Statistics/StatisticsCards/">
+        <span class="material-symbols-outlined @(currentController == "Statistics" ? "icon-fill" : "")">dashboard</span>
+        <span class="text-sm font-semibold">Dashboard</span>
+    </a>
+
+    <a class="group flex items-center gap-3 rounded-full px-4 py-3 transition-colors @(currentController == "Projects" ? "bg-primary text-white shadow-lg shadow-primary/20" : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")"
+       href="/Projects/ProjectList/">
+        <span class="material-symbols-outlined @(currentController == "Projects" ? "text-white" : "group-hover:text-primary")">folder_open</span>
+        <span class="text-sm font-medium @(currentController == "Projects" ? "text-white" : "group-hover:text-slate-900 dark:group-hover:text-white")">Projelerim</span>
+    </a>
+
+    <a class="group flex items-center gap-3 rounded-full px-4 py-3 transition-colors @(currentController == "Skill" ? "bg-primary text-white shadow-lg shadow-primary/20" : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")"
+       href="/Skill/SkillList/">
+        <span class="material-symbols-outlined @(currentController == "Skill" ? "text-white" : "group-hover:text-primary")">code</span>
+        <span class="text-sm font-medium @(currentController == "Skill" ? "text-white" : "group-hover:text-slate-900 dark:group-hover:text-white")">Yeteneklerim</span>
+    </a>
+
+    <a class="group flex items-center gap-3 rounded-full px-4 py-3 transition-colors @(currentController == "Experience" ? "bg-primary text-white shadow-lg shadow-primary/20" : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")"
+       href="/Experience/ExperienceList/">
+        <span class="material-symbols-outlined @(currentController == "Experience" ? "text-white" : "group-hover:text-primary")">history_edu</span>
+        <span class="text-sm font-medium @(currentController == "Experience" ? "text-white" : "group-hover:text-slate-900 dark:group-hover:text-white")">Deneyimler</span>
+    </a>
+
+    <a class="group flex items-center gap-3 rounded-full px-4 py-3 transition-colors @(currentController == "Contact" ? "bg-primary text-white shadow-lg shadow-primary/20" : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")"
+       href="/Contact/Messages/">
+        <span class="material-symbols-outlined @(currentController == "Contact" ? "text-white" : "group-hover:text-primary")">mail</span>
+        <span class="text-sm font-medium @(currentController == "Contact" ? "text-white" : "group-hover:text-slate-900 dark:group-hover:text-white")">Mesajlar</span>
+
+        <span class="ml-auto flex h-5 w-5 items-center justify-center rounded-full @(currentController == "Contact" ? "bg-white text-primary" : "bg-primary text-white") text-[10px] font-bold">
+            @await Component.InvokeAsync("_AdminLayoutSidebarMessageCountPartial")
+        </span>
+    </a>
+
+    <a class="group flex items-center gap-3 rounded-full px-4 py-3 transition-colors @(currentController == "Education" ? "bg-primary text-white shadow-lg shadow-primary/20" : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")"
+       href="/Education/EducationList/">
+        <span class="material-symbols-outlined @(currentController == "Education" ? "text-white" : "group-hover:text-primary")">school</span>
+        <span class="text-sm font-medium @(currentController == "Education" ? "text-white" : "group-hover:text-slate-900 dark:group-hover:text-white")">Eğitim</span>
+    </a>
+
+    <a class="group flex items-center gap-3 rounded-full px-4 py-3 transition-colors @(currentController == "Reference" ? "bg-primary text-white shadow-lg shadow-primary/20" : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")"
+       href="/Testimonial/TestimonialList/">
+        <span class="material-symbols-outlined @(currentController == "Reference" ? "text-white" : "group-hover:text-primary")">star</span>
+        <span class="text-sm font-medium @(currentController == "Reference" ? "text-white" : "group-hover:text-slate-900 dark:group-hover:text-white")">Referanslar</span>
+    </a>
+
+    <a class="group flex items-center gap-3 rounded-full px-4 py-3 transition-colors @(currentController == "About" ? "bg-primary text-white shadow-lg shadow-primary/20" : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800/50")"
+       href="/About/Index/">
+        <span class="material-symbols-outlined @(currentController == "About" ? "text-white" : "group-hover:text-primary")">person</span>
+        <span class="text-sm font-medium @(currentController == "About" ? "text-white" : "group-hover:text-slate-900 dark:group-hover:text-white")">Hakkımda</span>
+    </a>
 </nav>

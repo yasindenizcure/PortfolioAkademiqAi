@@ -1,0 +1,53 @@
+﻿@model List<Experience>
+@{
+    ViewData["Title"] = "Deneyim Listesi";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+<div style="padding: 40px; font-family: 'Inter', sans-serif; background-color: #f5f5f7; min-height: 100vh;">
+
+    <div style="max-width: 1000px; margin: 0 auto 40px auto; display: flex; justify-content: space-between; align-items: flex-end;">
+        <div>
+            <h1 style="font-size: 32px; font-weight: 800; color: #1d1d1f; margin: 0; letter-spacing: -1.5px;">Deneyim Yönetimi</h1>
+            <p style="color: #86868b; margin-top: 8px; font-size: 16px;">Kariyer yolculuğunu buradan düzenleyebilirsin.</p>
+        </div>
+        <a href="/Experience/CreateExperience" style="text-decoration: none; background: #007aff; color: white; padding: 14px 28px; border-radius: 14px; font-weight: 600; font-size: 14px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,122,255,0.25);" onmouseover="this.style.background='#005bb5'" onmouseout="this.style.background='#007aff'">
+            + Yeni Ekle
+        </a>
+    </div>
+
+    <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
+        @foreach (var item in Model)
+        {
+            <div style="background: #ffffff; border-radius: 20px; padding: 25px; border: 1px solid #e5e5e7; display: flex; align-items: center; gap: 25px; transition: 0.3s;" onmouseover="this.style.transform='translateX(10px)'; this.style.borderColor='#007aff';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='#e5e5e7';">
+
+                <div style="flex-shrink: 0; width: 65px; height: 65px; background: #f2f2f7; border-radius: 18px; display: flex; align-items: center; justify-content: center; color: #007aff;">
+                    <i class="@item.IconUrl" style="font-size: 28px;"></i>
+                </div>
+
+                <div style="flex-grow: 1;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px;">
+                        <h4 style="font-size: 19px; font-weight: 800; color: #1d1d1f; margin: 0;">@item.Title</h4>
+                        <span style="font-size: 13px; font-weight: 700; color: #007aff; background: #eef7ff; padding: 4px 12px; border-radius: 8px;">@item.WorkDate</span>
+                    </div>
+                    <div style="font-size: 15px; font-weight: 600; color: #86868b; margin-bottom: 10px;">@item.CompanyName</div>
+                    <p style="font-size: 14px; color: #424245; line-height: 1.5; margin: 0; max-width: 600px;">
+                        @item.Description
+                    </p>
+                </div>
+
+                <div style="flex-shrink: 0; display: flex; flex-direction: column; gap: 10px; border-left: 1px solid #f2f2f7; padding-left: 20px;">
+                    <a href="/Experience/UpdateExperience/@item.ExperienceId" style="text-decoration: none; width: 100px; text-align: center; padding: 10px; background: #f2f2f7; color: #1d1d1f; border-radius: 10px; font-size: 13px; font-weight: 700; transition: 0.2s;" onmouseover="this.style.background='#e5e5e7'" onmouseout="this.style.background='#f2f2f7'">
+                        Düzenle
+                    </a>
+                    <a href="/Experience/DeleteExperience/@item.ExperienceId" onclick="return confirm('Silmek istediğine emin misin?')" style="text-decoration: none; width: 100px; text-align: center; padding: 10px; background: #fff1f0; color: #ff3b30; border-radius: 10px; font-size: 13px; font-weight: 700; transition: 0.2s;" onmouseover="this.style.background='#ffccc7'" onmouseout="this.style.background='#fff1f0'">
+                        Sil
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

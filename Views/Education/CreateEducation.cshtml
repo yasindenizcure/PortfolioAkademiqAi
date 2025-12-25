@@ -1,0 +1,117 @@
+﻿@model Education
+@{
+    ViewData["Title"] = "Yeni Eğitim Ekle";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<style>
+    footer, .footer, .bottom-widgets, #footer, .clear, .clearfix::after {
+        display: none !important;
+    }
+
+    body {
+        background-color: #f5f5f7 !important;
+    }
+
+    .create-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 30px;
+        border: 1px solid #e5e5e7;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        margin-top: 10px;
+    }
+
+    .input-group-custom {
+        margin-bottom: 18px;
+    }
+
+        .input-group-custom label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #424245;
+            margin-bottom: 6px;
+        }
+
+    .input-custom {
+        width: 100%;
+        padding: 11px 15px;
+        border-radius: 10px;
+        border: 1px solid #d2d2d7;
+        background: #fbfbfd;
+        color: #1d1d1f;
+        outline: none;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+        .input-custom:focus {
+            border-color: #5856d6;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(88, 86, 214, 0.1);
+        }
+    .custom-row {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 18px;
+    }
+
+    .custom-col {
+        flex: 1;
+    }
+</style>
+
+<div style="padding: 30px; font-family: 'Inter', sans-serif;">
+
+    <div style="max-width: 700px; margin: 0 auto;">
+        <a href="/Education/EducationList" style="text-decoration: none; color: #5856d6; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 15px;">
+            <span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span> Listeye Dön
+        </a>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+        <div class="create-card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+                <div style="width: 45px; height: 45px; background: #f2f2f7; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #5856d6;">
+                    <i class="fa-solid fa-graduation-cap" style="font-size: 20px;"></i>
+                </div>
+                <h2 style="font-size: 22px; font-weight: 800; color: #1d1d1f; margin: 0; letter-spacing: -0.5px;">Eğitim Bilgisi Ekle</h2>
+            </div>
+            <form action="/Education/CreateEducation" method="post">
+
+                <div class="input-group-custom">
+                    <label>Okul / Akademi / Kurs Adı</label>
+                    <input type="text" name="Title" placeholder="Örn: Boğaziçi Üniversitesi" class="input-custom" required />
+                </div>
+
+                <div class="custom-row">
+                    <div style="flex: 2;">
+                        <div class="input-group-custom">
+                            <label>Bölüm / Sertifika Programı</label>
+                            <input type="text" name="Department" placeholder="Örn: Bilgisayar Mühendisliği" class="input-custom" required />
+                        </div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div class="input-group-custom">
+                            <label>Eğitim Tarihi</label>
+                            <input type="text" name="EducationDate" placeholder="2019 - 2023" class="input-custom" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 12px; margin-top: 10px;">
+                    <button type="submit" style="flex: 2; padding: 13px; background: #5856d6; color: white; border: none; border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 12px rgba(88,86,214,0.25);">
+                        Eğitimi Kaydet
+                    </button>
+                    <button type="reset" style="flex: 1; padding: 13px; background: #f2f2f7; color: #1d1d1f; border: none; border-radius: 12px; font-weight: 600; font-size: 14px; cursor: pointer; transition: 0.2s;">
+                        Temizle
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        @* Sayfa sonu temizliği *@
+        <div style="clear: both; height: 20px;"></div>
+    </div>
+</div>

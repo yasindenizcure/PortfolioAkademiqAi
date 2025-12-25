@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 namespace AkademiQPortfolio.Entities;
 
-public partial class Work
+public partial class Testimonial
 {
-    public int WorkId { get; set; }
+    public int TestimonialId { get; set; }
+
+    public string? NameSurname { get; set; }
 
     public string? Title { get; set; }
 
-    public string? Subtitle { get; set; }
+    public string? Description { get; set; }
 
     public string? ImageUrl { get; set; }
 }
