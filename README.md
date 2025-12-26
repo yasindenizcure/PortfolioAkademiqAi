@@ -1,28 +1,35 @@
 # AkademiQPortfolio
 
-Merhaba 👋
-Bu repo, güncel web teknolojileriyle geliştirilmiş AkademiQ Portfolio uygulamasını içerir.
-Projenin amacı; kişisel / profesyonel portföy sayfası oluşturmayı basit, temiz ve modern bir arayüzle gerçekleştirmek ve ileride AI destekli içerik üretme özellikleriyle bütünleştirmektir.
------------------------------------------------------------
-🚀 Özellikler
+Merhaba 👋  
 
-✨ Modern frontend (HTML & CSS ile responsive tasarım)
-💡 Backend ile dinamik içerik yönetimi (C# / .NET Core)
-⚡ JavaScript ile etkileşimli bileşenler
-📌 Kolay özelleştirilebilir yapı
-📁 Temiz ve modüler klasör yapısı
-📊 Geleceğe dönük AI ve kişisel marka odaklı tasarım
------------------------------------------------------------
-🛠️ Teknolojiler
+Bu repo, güncel web teknolojileriyle geliştirilmiş **AkademiQ Portfolio** uygulamasını içerir.  
+Projenin amacı; kişisel / profesyonel portföy sayfası oluşturmayı **basit, temiz ve modern** bir arayüzle gerçekleştirmek ve ileride **AI destekli içerik üretme özellikleriyle** bütünleştirmektir.
 
-✔️ HTML5
-✔️ CSS3
-✔️ C#
-✔️ JavaScript
-✔️ .NET Core 9
-✔️ EF Core (DB First Yaklaşımı)
-✔️ ViewComponent Kullanımı
------------------------------------------------------------
+---
+
+## 🚀 Özellikler
+
+✨ Modern frontend (HTML & CSS ile responsive tasarım)  
+💡 Backend ile dinamik içerik yönetimi (C# / .NET Core)  
+⚡ JavaScript ile etkileşimli bileşenler  
+📌 Kolay özelleştirilebilir yapı  
+📁 Temiz ve modüler klasör yapısı  
+📊 Geleceğe dönük AI ve kişisel marka odaklı tasarım  
+
+---
+
+## 🛠️ Kullanılan Teknolojiler
+
+✔️ HTML5  
+✔️ CSS3  
+✔️ JavaScript  
+✔️ C#  
+✔️ .NET Core 9  
+✔️ Entity Framework Core (DB First Yaklaşımı)  
+✔️ ViewComponent Kullanımı  
+
+---
+
 <img width="1791" height="972" alt="Ekran görüntüsü 2025-12-26 183334" src="https://github.com/user-attachments/assets/5ac1f3ab-21d8-4101-b48f-5b3f0a5799b4" />
 <img width="1793" height="977" alt="Ekran görüntüsü 2025-12-26 183322" src="https://github.com/user-attachments/assets/6ae538d7-6954-456c-8666-4258c416ba84" />
 <img width="1795" height="978" alt="Ekran görüntüsü 2025-12-26 183347" src="https://github.com/user-attachments/assets/ff1c2a90-e523-44dc-a46f-053f60af5fe7" />
